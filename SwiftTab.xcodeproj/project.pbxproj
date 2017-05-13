@@ -1,0 +1,698 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E2DFE6A680E50B714EAEA0F /* Pods_SwiftTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58484763F8CBAD48FF95964 /* Pods_SwiftTab.framework */; };
+		E19C68811EC71F0700F575EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C68801EC71F0700F575EE /* AppDelegate.swift */; };
+		E19C68831EC71F0700F575EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C68821EC71F0700F575EE /* ViewController.swift */; };
+		E19C68861EC71F0700F575EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19C68841EC71F0700F575EE /* Main.storyboard */; };
+		E19C68891EC71F0700F575EE /* SwiftTab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E19C68871EC71F0700F575EE /* SwiftTab.xcdatamodeld */; };
+		E19C688B1EC71F0700F575EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C688A1EC71F0700F575EE /* Assets.xcassets */; };
+		E19C688E1EC71F0700F575EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19C688C1EC71F0700F575EE /* LaunchScreen.storyboard */; };
+		E19C68991EC71F0700F575EE /* SwiftTabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C68981EC71F0700F575EE /* SwiftTabTests.swift */; };
+		E19C68A41EC71F0700F575EE /* SwiftTabUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C68A31EC71F0700F575EE /* SwiftTabUITests.swift */; };
+		E19C68B21EC7290000F575EE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C68B11EC7290000F575EE /* PageViewController.swift */; };
+		E91E79466014F4C1264D19A1 /* Pods_SwiftTabTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4458819665BDB6333908CB8 /* Pods_SwiftTabTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E19C68951EC71F0700F575EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E19C68751EC71F0700F575EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E19C687C1EC71F0700F575EE;
+			remoteInfo = SwiftTab;
+		};
+		E19C68A01EC71F0700F575EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E19C68751EC71F0700F575EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E19C687C1EC71F0700F575EE;
+			remoteInfo = SwiftTab;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3CC0EE64BA6BEC864C2B0E1F /* Pods-SwiftTabTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTabTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTabTests/Pods-SwiftTabTests.release.xcconfig"; sourceTree = "<group>"; };
+		729B628EF3AC63E911E9CA70 /* Pods-SwiftTabTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTabTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTabTests/Pods-SwiftTabTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F9C6EF2E2D4B605E6FA9868 /* Pods-SwiftTab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTab/Pods-SwiftTab.debug.xcconfig"; sourceTree = "<group>"; };
+		B58484763F8CBAD48FF95964 /* Pods_SwiftTab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7ADC98AB570F5EFFD9BA4C3 /* Pods-SwiftTab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTab.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTab/Pods-SwiftTab.release.xcconfig"; sourceTree = "<group>"; };
+		C4458819665BDB6333908CB8 /* Pods_SwiftTabTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTabTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19C687D1EC71F0700F575EE /* SwiftTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19C68801EC71F0700F575EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E19C68821EC71F0700F575EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E19C68851EC71F0700F575EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E19C68881EC71F0700F575EE /* SwiftTab.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftTab.xcdatamodel; sourceTree = "<group>"; };
+		E19C688A1EC71F0700F575EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E19C688D1EC71F0700F575EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E19C688F1EC71F0700F575EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E19C68941EC71F0700F575EE /* SwiftTabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19C68981EC71F0700F575EE /* SwiftTabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTabTests.swift; sourceTree = "<group>"; };
+		E19C689A1EC71F0700F575EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E19C689F1EC71F0700F575EE /* SwiftTabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19C68A31EC71F0700F575EE /* SwiftTabUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTabUITests.swift; sourceTree = "<group>"; };
+		E19C68A51EC71F0700F575EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E19C68B11EC7290000F575EE /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E19C687A1EC71F0700F575EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E2DFE6A680E50B714EAEA0F /* Pods_SwiftTab.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19C68911EC71F0700F575EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91E79466014F4C1264D19A1 /* Pods_SwiftTabTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19C689C1EC71F0700F575EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		584FF78BE653727173D5CE08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B58484763F8CBAD48FF95964 /* Pods_SwiftTab.framework */,
+				C4458819665BDB6333908CB8 /* Pods_SwiftTabTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7337DD5C3F47317C6E7C511 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F9C6EF2E2D4B605E6FA9868 /* Pods-SwiftTab.debug.xcconfig */,
+				B7ADC98AB570F5EFFD9BA4C3 /* Pods-SwiftTab.release.xcconfig */,
+				729B628EF3AC63E911E9CA70 /* Pods-SwiftTabTests.debug.xcconfig */,
+				3CC0EE64BA6BEC864C2B0E1F /* Pods-SwiftTabTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E19C68741EC71F0700F575EE = {
+			isa = PBXGroup;
+			children = (
+				E19C687F1EC71F0700F575EE /* SwiftTab */,
+				E19C68971EC71F0700F575EE /* SwiftTabTests */,
+				E19C68A21EC71F0700F575EE /* SwiftTabUITests */,
+				E19C687E1EC71F0700F575EE /* Products */,
+				A7337DD5C3F47317C6E7C511 /* Pods */,
+				584FF78BE653727173D5CE08 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E19C687E1EC71F0700F575EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E19C687D1EC71F0700F575EE /* SwiftTab.app */,
+				E19C68941EC71F0700F575EE /* SwiftTabTests.xctest */,
+				E19C689F1EC71F0700F575EE /* SwiftTabUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E19C687F1EC71F0700F575EE /* SwiftTab */ = {
+			isa = PBXGroup;
+			children = (
+				E19C68801EC71F0700F575EE /* AppDelegate.swift */,
+				E19C68821EC71F0700F575EE /* ViewController.swift */,
+				E19C68841EC71F0700F575EE /* Main.storyboard */,
+				E19C688A1EC71F0700F575EE /* Assets.xcassets */,
+				E19C688C1EC71F0700F575EE /* LaunchScreen.storyboard */,
+				E19C688F1EC71F0700F575EE /* Info.plist */,
+				E19C68871EC71F0700F575EE /* SwiftTab.xcdatamodeld */,
+				E19C68B11EC7290000F575EE /* PageViewController.swift */,
+			);
+			path = SwiftTab;
+			sourceTree = "<group>";
+		};
+		E19C68971EC71F0700F575EE /* SwiftTabTests */ = {
+			isa = PBXGroup;
+			children = (
+				E19C68981EC71F0700F575EE /* SwiftTabTests.swift */,
+				E19C689A1EC71F0700F575EE /* Info.plist */,
+			);
+			path = SwiftTabTests;
+			sourceTree = "<group>";
+		};
+		E19C68A21EC71F0700F575EE /* SwiftTabUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E19C68A31EC71F0700F575EE /* SwiftTabUITests.swift */,
+				E19C68A51EC71F0700F575EE /* Info.plist */,
+			);
+			path = SwiftTabUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E19C687C1EC71F0700F575EE /* SwiftTab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E19C68A81EC71F0700F575EE /* Build configuration list for PBXNativeTarget "SwiftTab" */;
+			buildPhases = (
+				FA03C4257F46EF410CE785BE /* [CP] Check Pods Manifest.lock */,
+				E19C68791EC71F0700F575EE /* Sources */,
+				E19C687A1EC71F0700F575EE /* Frameworks */,
+				E19C687B1EC71F0700F575EE /* Resources */,
+				BD01964D982C74DC2AD5BCDF /* [CP] Embed Pods Frameworks */,
+				17C4C1B89CF285927612FB13 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftTab;
+			productName = SwiftTab;
+			productReference = E19C687D1EC71F0700F575EE /* SwiftTab.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E19C68931EC71F0700F575EE /* SwiftTabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E19C68AB1EC71F0700F575EE /* Build configuration list for PBXNativeTarget "SwiftTabTests" */;
+			buildPhases = (
+				FC5CB01AF6DADA475507A1C4 /* [CP] Check Pods Manifest.lock */,
+				E19C68901EC71F0700F575EE /* Sources */,
+				E19C68911EC71F0700F575EE /* Frameworks */,
+				E19C68921EC71F0700F575EE /* Resources */,
+				B0F61D90FCD73DBE866AFBBD /* [CP] Embed Pods Frameworks */,
+				E5F4C787E2D126DE19FE5FAC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E19C68961EC71F0700F575EE /* PBXTargetDependency */,
+			);
+			name = SwiftTabTests;
+			productName = SwiftTabTests;
+			productReference = E19C68941EC71F0700F575EE /* SwiftTabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E19C689E1EC71F0700F575EE /* SwiftTabUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E19C68AE1EC71F0700F575EE /* Build configuration list for PBXNativeTarget "SwiftTabUITests" */;
+			buildPhases = (
+				E19C689B1EC71F0700F575EE /* Sources */,
+				E19C689C1EC71F0700F575EE /* Frameworks */,
+				E19C689D1EC71F0700F575EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E19C68A11EC71F0700F575EE /* PBXTargetDependency */,
+			);
+			name = SwiftTabUITests;
+			productName = SwiftTabUITests;
+			productReference = E19C689F1EC71F0700F575EE /* SwiftTabUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E19C68751EC71F0700F575EE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = akrio;
+				TargetAttributes = {
+					E19C687C1EC71F0700F575EE = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = HD6TEE6Z5F;
+						ProvisioningStyle = Automatic;
+					};
+					E19C68931EC71F0700F575EE = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = HD6TEE6Z5F;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E19C687C1EC71F0700F575EE;
+					};
+					E19C689E1EC71F0700F575EE = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = HD6TEE6Z5F;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E19C687C1EC71F0700F575EE;
+					};
+				};
+			};
+			buildConfigurationList = E19C68781EC71F0700F575EE /* Build configuration list for PBXProject "SwiftTab" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E19C68741EC71F0700F575EE;
+			productRefGroup = E19C687E1EC71F0700F575EE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E19C687C1EC71F0700F575EE /* SwiftTab */,
+				E19C68931EC71F0700F575EE /* SwiftTabTests */,
+				E19C689E1EC71F0700F575EE /* SwiftTabUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E19C687B1EC71F0700F575EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19C688E1EC71F0700F575EE /* LaunchScreen.storyboard in Resources */,
+				E19C688B1EC71F0700F575EE /* Assets.xcassets in Resources */,
+				E19C68861EC71F0700F575EE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19C68921EC71F0700F575EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19C689D1EC71F0700F575EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17C4C1B89CF285927612FB13 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftTab/Pods-SwiftTab-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0F61D90FCD73DBE866AFBBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftTabTests/Pods-SwiftTabTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD01964D982C74DC2AD5BCDF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftTab/Pods-SwiftTab-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5F4C787E2D126DE19FE5FAC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftTabTests/Pods-SwiftTabTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA03C4257F46EF410CE785BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FC5CB01AF6DADA475507A1C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E19C68791EC71F0700F575EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19C68831EC71F0700F575EE /* ViewController.swift in Sources */,
+				E19C68891EC71F0700F575EE /* SwiftTab.xcdatamodeld in Sources */,
+				E19C68811EC71F0700F575EE /* AppDelegate.swift in Sources */,
+				E19C68B21EC7290000F575EE /* PageViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19C68901EC71F0700F575EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19C68991EC71F0700F575EE /* SwiftTabTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19C689B1EC71F0700F575EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19C68A41EC71F0700F575EE /* SwiftTabUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E19C68961EC71F0700F575EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E19C687C1EC71F0700F575EE /* SwiftTab */;
+			targetProxy = E19C68951EC71F0700F575EE /* PBXContainerItemProxy */;
+		};
+		E19C68A11EC71F0700F575EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E19C687C1EC71F0700F575EE /* SwiftTab */;
+			targetProxy = E19C68A01EC71F0700F575EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E19C68841EC71F0700F575EE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E19C68851EC71F0700F575EE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E19C688C1EC71F0700F575EE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E19C688D1EC71F0700F575EE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E19C68A61EC71F0700F575EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E19C68A71EC71F0700F575EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E19C68A91EC71F0700F575EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F9C6EF2E2D4B605E6FA9868 /* Pods-SwiftTab.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = HD6TEE6Z5F;
+				INFOPLIST_FILE = SwiftTab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akrio.SwiftTab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E19C68AA1EC71F0700F575EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7ADC98AB570F5EFFD9BA4C3 /* Pods-SwiftTab.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = HD6TEE6Z5F;
+				INFOPLIST_FILE = SwiftTab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akrio.SwiftTab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E19C68AC1EC71F0700F575EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 729B628EF3AC63E911E9CA70 /* Pods-SwiftTabTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = HD6TEE6Z5F;
+				INFOPLIST_FILE = SwiftTabTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akrio.SwiftTabTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftTab.app/SwiftTab";
+			};
+			name = Debug;
+		};
+		E19C68AD1EC71F0700F575EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CC0EE64BA6BEC864C2B0E1F /* Pods-SwiftTabTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = HD6TEE6Z5F;
+				INFOPLIST_FILE = SwiftTabTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akrio.SwiftTabTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftTab.app/SwiftTab";
+			};
+			name = Release;
+		};
+		E19C68AF1EC71F0700F575EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = HD6TEE6Z5F;
+				INFOPLIST_FILE = SwiftTabUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akrio.SwiftTabUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SwiftTab;
+			};
+			name = Debug;
+		};
+		E19C68B01EC71F0700F575EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = HD6TEE6Z5F;
+				INFOPLIST_FILE = SwiftTabUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akrio.SwiftTabUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SwiftTab;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E19C68781EC71F0700F575EE /* Build configuration list for PBXProject "SwiftTab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19C68A61EC71F0700F575EE /* Debug */,
+				E19C68A71EC71F0700F575EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E19C68A81EC71F0700F575EE /* Build configuration list for PBXNativeTarget "SwiftTab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19C68A91EC71F0700F575EE /* Debug */,
+				E19C68AA1EC71F0700F575EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E19C68AB1EC71F0700F575EE /* Build configuration list for PBXNativeTarget "SwiftTabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19C68AC1EC71F0700F575EE /* Debug */,
+				E19C68AD1EC71F0700F575EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E19C68AE1EC71F0700F575EE /* Build configuration list for PBXNativeTarget "SwiftTabUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19C68AF1EC71F0700F575EE /* Debug */,
+				E19C68B01EC71F0700F575EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E19C68871EC71F0700F575EE /* SwiftTab.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E19C68881EC71F0700F575EE /* SwiftTab.xcdatamodel */,
+			);
+			currentVersion = E19C68881EC71F0700F575EE /* SwiftTab.xcdatamodel */;
+			path = SwiftTab.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E19C68751EC71F0700F575EE /* Project object */;
+}
