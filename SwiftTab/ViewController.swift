@@ -20,11 +20,19 @@ let tabItemNormalColor = UIColor.black
 /// tab高亮时颜色
 let tabItemHightColor = UIColor(colorLiteralRed: 212/255, green: 57/255, blue: 49/255, alpha: 1)
 /// tab栏中按钮最小密度
-let minTabDensity:CGFloat = 0.1
+let minTabDensity:CGFloat = 0.7
+/// 选中线高度
+let selectLineHeight:CGFloat = 3
+/// 选中线颜色 (默认和tab栏选中颜色相同)
+let selectLineColor = tabItemHightColor
+/// 选中宽度和当前tabitem文字宽度差值
+let selectLineDifference:CGFloat = 10
 
 class ViewController: UIViewController {
     /// tab 栏view
     let headerView = UIScrollView()
+    /// tab 栏选中线view
+    let selectLineView = UIView()
     /// page view
     let pageView = UIScrollView()
     /// 每个tab项
@@ -54,10 +62,19 @@ class ViewController: UIViewController {
             make.right.equalTo(self.view)
             make.bottom.equalTo(self.view)
         }
+        //添加下方横线
+        selectLineView.backgroundColor = selectLineColor
+        headerView.addSubview(selectLineView)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         resizeTab()
+        selectLineView.snp.makeConstraints{make in
+            make.bottom.equalTo(headerView)
+            make.height.equalTo(selectLineHeight)
+            make.centerX.equalTo(tabItems.first!.tabBtn.snp.centerX)
+            make.width.equalTo(tabItems.first!.tabBtn).offset(selectLineDifference)
+        }
     }
     /// 重新计算tab样式
     private func resizeTab() {
@@ -66,7 +83,9 @@ class ViewController: UIViewController {
         for (index,item) in tabItems.enumerated() {
             headerView.addSubview(item.tabBtn)
             item.tabBtn.snp.makeConstraints{ make in
-                make.centerY.equalTo(headerView)
+                make.bottom.equalTo(headerView)
+                make.top.equalTo(headerView)
+                make.height.equalTo(headerView)
                 if index == 0 {
                     make.left.equalTo(headerView).offset(tabLRMargin)
                 }else {
@@ -74,30 +93,14 @@ class ViewController: UIViewController {
                 }
             }
         }
-
-    }
-
-    /// 计算每个tab之间的间隔
-    private func computeTabPadding(_ width:CGFloat? = nil) -> CGFloat{
-        let width = width ?? self.headerView.frame.size.width
-        //计算如果不发生滚动，平均放置到tab栏中，各项间距
-        let tabTextTotalWidht = tabItems.reduce(CGFloat(0)){ $0 + NSString(string: $1.tabBtn.currentTitle ?? "")
-            .size(attributes: [NSFontAttributeName:font]).width}
-        let tabCount = CGFloat(tabItems.count)
-        let padding = (width - 2 * tabLRMargin - tabTextTotalWidht) / (tabCount - 1)
-        //根据tab密度决定是否需要滚动(按钮平均宽度和按钮之间空格比例)
-        let tabDensity = tabTextTotalWidht / tabCount / padding
-        if tabDensity < minTabDensity {
-            return 40
+        tabItems.last?.tabBtn.snp.makeConstraints{ make in
+            make.right.equalTo(headerView).offset(-tabLRMargin)
         }
-        return padding
     }
-
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         let padding = computeTabPadding(size.width)
         for (index,item) in tabItems.enumerated() {
             item.tabBtn.snp.updateConstraints{ make in
-                make.centerY.equalTo(headerView)
                 if index == 0 {
                     make.left.equalTo(headerView).offset(tabLRMargin)
                 }else {
@@ -106,24 +109,38 @@ class ViewController: UIViewController {
             }
         }
     }
+    /// 计算文字所占宽度
+    ///
+    /// - Parameter item: tab项
+    /// - Returns: tab标题栏文字宽度
+    private func getFontWidht(_ item:TabItem?) -> CGFloat{
+        guard let item = item else {
+            return 0
+        }
+        return NSString(string: item.title).size(attributes: [NSFontAttributeName:font]).width
+    }
+    /// 计算每个tab之间的间隔
+    private func computeTabPadding(_ width:CGFloat? = nil) -> CGFloat{
+        let width = width ?? self.headerView.frame.size.width
+        //计算如果不发生滚动，平均放置到tab栏中，各项间距
+        let tabTextTotalWidht = tabItems.reduce(CGFloat(0)){ $0 + getFontWidht($1)}
+        let tabCount = CGFloat(tabItems.count)
+        let padding = (width - 2 * tabLRMargin - tabTextTotalWidht) / (tabCount - 1)
+        //根据tab密度决定是否需要滚动(按钮平均宽度和按钮之间空格比例)
+        let tabDensity = padding / tabTextTotalWidht / tabCount
+        if tabDensity < minTabDensity {
+            return  minTabDensity * tabTextTotalWidht / tabCount
+        }
+        return padding
+    }
     /// 添加测试数据
     private func testItem(){
-        let t1 = TabItem(pageController: UIViewController(), tabBtn: UIButton())
-        t1.tabBtn.setTitle("个性推荐", for: .normal)
-        let t2 = TabItem(pageController: UIViewController(), tabBtn: UIButton())
-        t2.tabBtn.setTitle("歌单", for: .normal)
-        let t3 = TabItem(pageController: UIViewController(), tabBtn: UIButton())
-        t3.tabBtn.setTitle("主播电台", for: .normal)
-        let t4 = TabItem(pageController: UIViewController(), tabBtn: UIButton())
-        t4.tabBtn.setTitle("排行榜", for: .normal)
-        let t5 = TabItem(pageController: UIViewController(), tabBtn: UIButton())
-        t5.tabBtn.setTitle("个性推荐", for: .normal)
-        let t6 = TabItem(pageController: UIViewController(), tabBtn: UIButton())
-        t6.tabBtn.setTitle("歌单", for: .normal)
-//        let t7 = TabItem(pageController: UIViewController(), tabBtn: UIButton())
-//        t7.tabBtn.setTitle("排行榜", for: .normal)
-//        let t8 = TabItem(pageController: UIViewController(), tabBtn: UIButton())
-//        t8.tabBtn.setTitle("主播电台", for: .normal)
+        let t1 = TabItem("个性推荐",pageController: UIViewController())
+        let t2 = TabItem("歌单",pageController: UIViewController())
+        let t3 = TabItem("主播电台",pageController: UIViewController())
+        let t4 = TabItem("排行榜",pageController: UIViewController())
+        let t5 = TabItem("个性推荐",pageController: UIViewController())
+        let t6 = TabItem("歌单",pageController: UIViewController())
         tabItems = [t1,t2,t3,t4,t5,t6]
     }
 
@@ -132,11 +149,14 @@ class ViewController: UIViewController {
 struct TabItem {
     /// 每个tab对应的控制器
     let pageController:UIViewController
+    /// tab栏标题
+    let title:String
     /// 每个tab button样式
-    let tabBtn:UIButton
-    init(pageController:UIViewController,tabBtn:UIButton) {
+    let tabBtn:UIButton = UIButton()
+    init(_ title:String,pageController:UIViewController) {
         self.pageController = pageController
-        self.tabBtn = tabBtn
+        self.title = title
+        self.tabBtn.setTitle(title, for: .normal)
         self.tabBtn.setTitleColor(tabItemNormalColor, for: .normal)
         self.tabBtn.setTitleColor(tabItemHightColor, for: .highlighted)
         self.tabBtn.titleLabel?.font = font
