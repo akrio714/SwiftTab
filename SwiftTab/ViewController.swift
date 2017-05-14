@@ -109,7 +109,13 @@ class ViewController: UIViewController {
             }
             //同时计算header选中条滚动到中间需要移动多少像素
             let postion = btn.convert(CGPoint(x: -btn.frame.width/2, y: 0 ), from: self.view).x
-            self.headerView.contentOffset.x = -self.view.frame.size.width/2 - postion
+            self.headerView.contentOffset.x -= self.view.frame.size.width/2 + postion
+            //判断是否超出滚动范围
+            if self.headerView.contentOffset.x < 0 {
+                self.headerView.contentOffset.x = 0
+            }else if self.headerView.contentOffset.x > self.headerView.contentSize.width - self.headerView.frame.size.width {
+                self.headerView.contentOffset.x = self.headerView.contentSize.width - self.headerView.frame.size.width
+            }
             self.view.layoutIfNeeded()
         })
     }
