@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         selectLineView.snp.makeConstraints{make in
             make.bottom.equalTo(headerView)
             make.height.equalTo(selectLineHeight)
-            make.centerX.equalTo(tabItems.first!.tabBtn.snp.centerX)
+            make.centerX.equalTo(tabItems.first!.tabBtn)
             make.width.equalTo(tabItems.first!.tabBtn).offset(selectLineDifference)
         }
     }
@@ -82,6 +82,7 @@ class ViewController: UIViewController {
         let padding = computeTabPadding()
         for (index,item) in tabItems.enumerated() {
             headerView.addSubview(item.tabBtn)
+            //tab布局
             item.tabBtn.snp.makeConstraints{ make in
                 make.bottom.equalTo(headerView)
                 make.top.equalTo(headerView)
@@ -92,10 +93,25 @@ class ViewController: UIViewController {
                     make.left.equalTo(tabItems[index - 1].tabBtn.snp.right).offset(padding)
                 }
             }
+            item.tabBtn.addTarget(self, action: #selector(tabClick), for: .touchUpInside)
         }
         tabItems.last?.tabBtn.snp.makeConstraints{ make in
             make.right.equalTo(headerView).offset(-tabLRMargin)
         }
+    }
+    func tabClick(btn:UIButton){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.selectLineView.snp.remakeConstraints{ make in
+                make.bottom.equalTo(self.headerView)
+                make.height.equalTo(selectLineHeight)
+                make.centerX.equalTo(btn)
+                make.width.equalTo(btn).offset(selectLineDifference)
+            }
+            //同时计算header选中条滚动到中间需要移动多少像素
+            let postion = btn.convert(CGPoint(x: -btn.frame.width/2, y: 0 ), from: self.view).x
+            self.headerView.contentOffset.x = -self.view.frame.size.width/2 - postion
+            self.view.layoutIfNeeded()
+        })
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         let padding = computeTabPadding(size.width)
@@ -147,12 +163,14 @@ class ViewController: UIViewController {
 }
 /// tab实体
 struct TabItem {
+    static var index = 0
     /// 每个tab对应的控制器
     let pageController:UIViewController
     /// tab栏标题
     let title:String
     /// 每个tab button样式
     let tabBtn:UIButton = UIButton()
+    let id:Int = index
     init(_ title:String,pageController:UIViewController) {
         self.pageController = pageController
         self.title = title
@@ -160,5 +178,7 @@ struct TabItem {
         self.tabBtn.setTitleColor(tabItemNormalColor, for: .normal)
         self.tabBtn.setTitleColor(tabItemHightColor, for: .highlighted)
         self.tabBtn.titleLabel?.font = font
+        self.tabBtn.tag = TabItem.index
+        TabItem.index += 1
     }
 }
