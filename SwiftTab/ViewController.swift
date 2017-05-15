@@ -54,7 +54,7 @@ class ViewController: UIViewController {
             make.height.equalTo(tabHeight)
         }
         //添加pageScroller
-        pageView.backgroundColor = UIColor.black
+        pageView.backgroundColor = UIColor.yellow
         self.view.addSubview(pageView)
         pageView.snp.makeConstraints{make in
             make.top.equalTo(headerView.snp.bottom)
@@ -65,6 +65,28 @@ class ViewController: UIViewController {
         //添加下方横线
         selectLineView.backgroundColor = selectLineColor
         headerView.addSubview(selectLineView)
+        //向page中添加tab项
+        for (index,tabItem) in tabItems.enumerated() {
+            self.pageView.addSubview(tabItem.pageController.view)
+            tabItem.pageController.view.snp.makeConstraints{ make in
+                make.top.equalTo(self.pageView)
+                make.bottom.equalTo(self.pageView)
+                make.height.equalTo(self.pageView)
+                make.width.equalTo(self.view)
+                if index == 0 {
+                    make.left.equalTo(self.pageView)
+                } else {
+                    make.left.equalTo(tabItems[index - 1].pageController.view.snp.right)
+                }
+                if index == tabItems.count - 1 {
+                    make.right.equalTo(self.pageView)
+                }
+                
+            }
+            self.addChildViewController(tabItem.pageController)
+        }
+        //调整page属性
+        pageView.isPagingEnabled = true
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -116,8 +138,16 @@ class ViewController: UIViewController {
             }else if self.headerView.contentOffset.x > self.headerView.contentSize.width - self.headerView.frame.size.width {
                 self.headerView.contentOffset.x = self.headerView.contentSize.width - self.headerView.frame.size.width
             }
+            self.selectTab(btn)
             self.view.layoutIfNeeded()
         })
+    }
+    /// 点击按钮 修改tab颜色
+    ///
+    /// - Parameter btn: 点击的tab
+    private func selectTab(_ btn:UIButton) {
+        tabItems.forEach{$0.tabBtn.isSelected = false }
+        btn.isSelected = true
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         let padding = computeTabPadding(size.width)
@@ -167,6 +197,16 @@ class ViewController: UIViewController {
     }
 
 }
+extension ViewController:UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pagerContentOffsetX = scrollView.contentOffset.x
+        //滑动比例
+        let indexScale = pagerContentOffsetX/scrollView.contentSize.width * CGFloat(tabItems.count)
+        //计算当松开手后，所处的页面index
+        let index:Int = lroundf(Float(indexScale));
+    }
+    
+}
 /// tab实体
 struct TabItem {
     static var index = 0
@@ -183,6 +223,7 @@ struct TabItem {
         self.tabBtn.setTitle(title, for: .normal)
         self.tabBtn.setTitleColor(tabItemNormalColor, for: .normal)
         self.tabBtn.setTitleColor(tabItemHightColor, for: .highlighted)
+        self.tabBtn.setTitleColor(tabItemHightColor, for: .selected)
         self.tabBtn.titleLabel?.font = font
         self.tabBtn.tag = TabItem.index
         TabItem.index += 1
