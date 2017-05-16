@@ -26,7 +26,7 @@ let selectLineHeight:CGFloat = 3
 /// 选中线颜色 (默认和tab栏选中颜色相同)
 let selectLineColor = tabItemHightColor
 /// 选中宽度和当前tabitem文字宽度差值
-let selectLineDifference:CGFloat = 10
+let selectLineDifference:CGFloat = 5
 
 class ViewController: UIViewController {
     /// tab 栏view
@@ -46,6 +46,7 @@ class ViewController: UIViewController {
         
         //添加headerScroller
         headerView.backgroundColor = tabColor
+        headerView.showsHorizontalScrollIndicator = false
         self.view.addSubview(headerView)
         headerView.snp.makeConstraints{make in
             make.top.equalTo(self.view)
@@ -55,6 +56,8 @@ class ViewController: UIViewController {
         }
         //添加pageScroller
         pageView.backgroundColor = UIColor.yellow
+        pageView.showsHorizontalScrollIndicator = false
+        pageView.bounces = false
         self.view.addSubview(pageView)
         pageView.snp.makeConstraints{make in
             make.top.equalTo(headerView.snp.bottom)
@@ -87,6 +90,7 @@ class ViewController: UIViewController {
         }
         //调整page属性
         pageView.isPagingEnabled = true
+        pageView.delegate = self
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -121,6 +125,9 @@ class ViewController: UIViewController {
             make.right.equalTo(headerView).offset(-tabLRMargin)
         }
     }
+    /// tab按钮点击后样式变化
+    ///
+    /// - Parameter btn: 点击的按钮
     func tabClick(btn:UIButton){
         UIView.animate(withDuration: 0.3, animations: {
             self.selectLineView.snp.remakeConstraints{ make in
@@ -129,38 +136,36 @@ class ViewController: UIViewController {
                 make.centerX.equalTo(btn)
                 make.width.equalTo(btn).offset(selectLineDifference)
             }
-            //同时计算header选中条滚动到中间需要移动多少像素
-            let postion = btn.convert(CGPoint(x: -btn.frame.width/2, y: 0 ), from: self.view).x
-            self.headerView.contentOffset.x -= self.view.frame.size.width/2 + postion
-            //判断是否超出滚动范围
-            if self.headerView.contentOffset.x < 0 {
-                self.headerView.contentOffset.x = 0
-            }else if self.headerView.contentOffset.x > self.headerView.contentSize.width - self.headerView.frame.size.width {
-                self.headerView.contentOffset.x = self.headerView.contentSize.width - self.headerView.frame.size.width
-            }
+            // 使选中按钮在header滚动不超过边界的情况下居中
+            self.center(btn)
             self.selectTab(btn)
             self.view.layoutIfNeeded()
+        },completion: {
+            guard $0 else {
+                return
+            }
+            self.pageView.contentOffset.x = CGFloat(btn.tag) * self.view.frame.width
         })
     }
     /// 点击按钮 修改tab颜色
     ///
     /// - Parameter btn: 点击的tab
-    private func selectTab(_ btn:UIButton) {
+    func selectTab(_ btn:UIButton) {
         tabItems.forEach{$0.tabBtn.isSelected = false }
         btn.isSelected = true
     }
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        let padding = computeTabPadding(size.width)
-        for (index,item) in tabItems.enumerated() {
-            item.tabBtn.snp.updateConstraints{ make in
-                if index == 0 {
-                    make.left.equalTo(headerView).offset(tabLRMargin)
-                }else {
-                    make.left.equalTo(tabItems[index - 1].tabBtn.snp.right).offset(padding)
-                }
-            }
-        }
-    }
+//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        let padding = computeTabPadding(size.width)
+//        for (index,item) in tabItems.enumerated() {
+//            item.tabBtn.snp.updateConstraints{ make in
+//                if index == 0 {
+//                    make.left.equalTo(headerView).offset(tabLRMargin)
+//                }else {
+//                    make.left.equalTo(tabItems[index - 1].tabBtn.snp.right).offset(padding)
+//                }
+//            }
+//        }
+//    }
     /// 计算文字所占宽度
     ///
     /// - Parameter item: tab项
@@ -187,25 +192,79 @@ class ViewController: UIViewController {
     }
     /// 添加测试数据
     private func testItem(){
-        let t1 = TabItem("个性推荐",pageController: UIViewController())
-        let t2 = TabItem("歌单",pageController: UIViewController())
-        let t3 = TabItem("主播电台",pageController: UIViewController())
-        let t4 = TabItem("排行榜",pageController: UIViewController())
-        let t5 = TabItem("个性推荐",pageController: UIViewController())
-        let t6 = TabItem("歌单",pageController: UIViewController())
+        let c1 = PageItemViewController()
+        c1.color = UIColor(colorLiteralRed: 254/255, green: 67/255, blue: 101/255, alpha: 1)
+        c1.text = "1"
+        let t1 = TabItem("个性推荐",pageController: c1)
+        let c2 = PageItemViewController()
+        c2.color = UIColor(colorLiteralRed: 252/255, green: 157/255, blue: 154/255, alpha: 1)
+        c2.text = "2"
+        let t2 = TabItem("歌单",pageController: c2)
+        let c3 = PageItemViewController()
+        c3.color = UIColor(colorLiteralRed: 249/255, green: 205/255, blue: 173/255, alpha: 1)
+        c3.text = "3"
+        let t3 = TabItem("主播电台",pageController: c3)
+        let c4 = PageItemViewController()
+        c4.color = UIColor(colorLiteralRed: 200/255, green: 200/255, blue: 169/255, alpha: 1)
+        c4.text = "4"
+        let t4 = TabItem("排行榜",pageController: c4)
+        let c5 = PageItemViewController()
+        c5.color = UIColor(colorLiteralRed: 131/255, green: 175/255, blue: 155/255, alpha: 1)
+        c5.text = "5"
+        let t5 = TabItem("这个标题特别长",pageController: c5)
+        let c6 = PageItemViewController()
+        c6.color = UIColor(colorLiteralRed: 254/255, green: 67/255, blue: 101/255, alpha: 1)
+        c6.text = "6"
+        let t6 = TabItem("短",pageController: c6)
         tabItems = [t1,t2,t3,t4,t5,t6]
     }
-
+    
 }
 extension ViewController:UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pagerContentOffsetX = scrollView.contentOffset.x
         //滑动比例
         let indexScale = pagerContentOffsetX/scrollView.contentSize.width * CGFloat(tabItems.count)
-        //计算当松开手后，所处的页面index
-        let index:Int = lroundf(Float(indexScale));
+        //计算位移比例
+        let diffentScale = indexScale - CGFloat(Int(indexScale))
+        //计算下方横线的前一项和后一项的btn
+        guard Int(indexScale) <  tabItems.count - 1 && indexScale > 0 else {
+            return
+        }
+        let preBtn = tabItems[lroundf(Float(indexScale - 0.5))]
+        let afterBtn = tabItems[lroundf(Float(indexScale + 0.5))]
+        //然后计算2项tabitem中心点的差值
+        let diffent = afterBtn.tabBtn.center.x - preBtn.tabBtn.center.x
+        print("preBtn -> \(preBtn.title) afterBtn -> \(afterBtn.title)")
+        print("diffent -> \(diffent)")
+        //计算当松手后会滑向哪一个
+        let nextIndex = lroundf(Float(indexScale))
+        //高亮松手后tab
+        selectTab(tabItems[nextIndex].tabBtn)
+        //同时平滑过渡宽度
+        selectLineView.snp.remakeConstraints{make in
+            make.width.equalTo(preBtn.tabBtn.frame.width + selectLineDifference + (afterBtn.tabBtn.frame.width - preBtn.tabBtn.frame.width) * diffentScale)
+            make.centerX.equalTo(preBtn.tabBtn.center.x + (diffentScale) * diffent)
+            make.bottom.equalTo(self.headerView)
+            make.height.equalTo(selectLineHeight)
+        }
+        // 使tab栏在滚动不超过边界的时候 横线屏幕居中
+        center(self.selectLineView)
     }
-    
+    /// 使tab栏在滚动不超过边界的时候元素居中
+    ///
+    /// - Parameter view: 需要居中的元素
+    func center(_ view:UIView) {
+        //同时计算header选中条滚动到中间需要移动多少像素
+        let postion = view.convert(CGPoint(x: -view.frame.width/2, y: 0 ), from: self.view).x
+        self.headerView.contentOffset.x -= self.view.frame.size.width/2 + postion
+        //判断是否超出滚动范围
+        if self.headerView.contentOffset.x < 0 {
+            self.headerView.contentOffset.x = 0
+        }else if self.headerView.contentOffset.x > self.headerView.contentSize.width - self.headerView.frame.size.width {
+            self.headerView.contentOffset.x = self.headerView.contentSize.width - self.headerView.frame.size.width
+        }
+    }
 }
 /// tab实体
 struct TabItem {
